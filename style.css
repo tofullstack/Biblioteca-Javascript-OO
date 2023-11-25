@@ -104,3 +104,13 @@ li{
     z-index: 9999;
     color: #fff;
 }
+
+/* Padrão de cores para disponibilidade um item */
+
+.disponivel {
+    color: #31a910;
+}
+
+.emprestado {
+    color: #F25E5E;
+}

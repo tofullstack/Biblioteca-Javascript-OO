@@ -170,10 +170,11 @@ class Biblioteca {
             }
         } else {
             console.log("Não foi possível encontrar o código!");
+            criarPopup("Não foi possível encontrar o código.")
         }
     }
 
-    // Função para devolução de um livro, recebe o codigo como parametro, realiza a busca do código e verifica se o mesmo existe, caso seja encontrado chama a função devolver da Entidade Bibliografica, ao contrário é exibido no consoel uma mensagem que indica que o código nao foi encontrado.
+    // Função para devolução de um livro, recebe o codigo como parametro, realiza a busca do código e verifica se o mesmo existe, caso seja encontrado chama a função devolver da Entidade Bibliografica, ao contrário é exibido no console uma mensagem que indica que o código nao foi encontrado.
     devolverItem(cod) {
         const found = this.acervo.find((element) => element.codigo === cod);
 
@@ -350,8 +351,10 @@ function listarAcervo() {
 
     novaBiblioteca.acervo.forEach(item => {
         const li = document.createElement('li');
-        const status = item.emprestado ? `Emprestado para ${item.usuarioEmprestimo.nome}` : 'Disponível';
-        li.textContent = `${item.titulo} - ${status} - COD: ${item.codigo}`;
+        const status = item.emprestado ? 'Emprestado' : 'Disponivel';
+        const statusText = item.emprestado ? `<span class="emprestado">${status} para ${item.usuarioEmprestimo.nome}</span>` : `<span class="disponivel">${status}</span>`;
+        // Criando o HTML dinamicamente, possibilitando a alteraçao de cor para disponibilidade do item.
+        li.innerHTML = `${item.titulo} - ${statusText} - COD: ${item.codigo}`;
         listaAcervo.appendChild(li);
     });
 }
