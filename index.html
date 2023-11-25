@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tofuteca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Tofuteca - A Biblioteca da Tofu</h1>
+
+    <div class="label-box">
+        <h2>Adicionar Usuário</h2>
+        <label for="nomeUsuario">Nome:</label>
+        <input type="text" id="nomeUsuario">
+        <br>
+        <label for="registroUsuario">Registro Acadêmico:</label>
+        <input type="text" id="registroUsuario">
+        <br>
+        <label for="dataNascimentoUsuario">Data de Nascimento:</label>
+        <input type="date" required id="dataNascimentoUsuario">
+        <br>
+        <button onclick="adicionarUsuario()">Adicionar Usuário</button>
+    </div>
+
+    <div class="label-box">
+        <h2>Adicionar Item ao Acervo</h2>
+        <label for="tituloItem">Título:</label>
+        <input type="text" id="tituloItem">
+        <br>
+        <label for="autorItem">Autor:</label>
+        <input type="text" id="autorItem">
+        <br>
+        <label for="anoPublicacaoItem">Ano de Publicação:</label>
+        <input type="text" id="anoPublicacaoItem">
+        <br>
+        <label for="codigoItem">Código:</label>
+        <input type="text" id="codigoItem">
+        <br>
+        <label for="generoItem">Gênero:</label>
+        <select id="generoItem">
+            <option value="Ficção Científica">Ficção Científica</option>
+            <option value="Ação">Ação</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Terror">Terror</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Romance">Romance</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Tech">Desenvolvimento de Software</option>
+        </select>
+        <br>
+        <button onclick="adicionarItem()">Adicionar Item ao Acervo</button>
+    </div>
+
+    <div class="label-box">
+        <h2>Emprestar/Devolver Item</h2>
+    <label for="codigoEmprestarDevolver">Código do Item:</label>
+    <input type="text" id="codigoEmprestarDevolver">
+    <br>
+    <label for="nomeUsuarioEmprestar">ID do Usuario:</label>
+    <input type="text" id="idUsuarioEmprestar">
+    <br>
+    <button onclick="emprestarItem()">Emprestar</button>
+    <button onclick="devolverItem()">Devolver</button>
+    </div>
+
+    <div class="label-box listar">
+        <h2>Usuários</h2>
+        <button onclick="listarUsuarios()">Listar Usuários</button>
+        <ul id="listaUsuarios"></ul>
+    </div>
+
+    <div class="label-box listar">
+        <h2>Acervo</h2>
+        <button onclick="listarAcervo()">Listar Acervo</button>
+        <ul id="listaAcervo"></ul>
+    </div>
+
+
+    
+    <div id="bunny-img">
+        <img src="icon/rabbit.png"alt="Logotipo de Coelho">
+    </div>
+</body>
+<script src="part001.js"></script>
+</html>
