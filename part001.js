@@ -163,9 +163,10 @@ class Biblioteca {
         if (found) {
             if (found.emprestado) {
                 console.log(`${found.titulo} não está disponível`)
-                criarPopup(`${found.titulo} não está disponível`) //TODO    
+                criarPopup(`${found.titulo} não está disponível`) //TODO
             } else {
                 found.emprestar(usuario);
+                criarPopup("Empréstimo realizado com sucesso.")
             }
         } else {
             console.log("Não foi possível encontrar o código!");
@@ -178,8 +179,10 @@ class Biblioteca {
 
         if (found) {
             found.devolver();
+            criarPopup("Devolução realizada com sucesso.")
         } else {
             console.log("Não foi possível encontrar o código!");
+            criarPopup("Não foi possível encontrar o código.")
         }
     }
 }
@@ -369,22 +372,7 @@ function emprestarItem() {
         return;
     }
 
-    //Verifica se o item está disponivel
-    const found = novaBiblioteca.acervo.find((element) => element.codigo === codigo);
-    if (found) {
-        if (found.emprestado) {
-            criarPopup(`${found.titulo} não está disponível`);
-            return; // Sair da função se o livro não estiver disponível.
-        } else {
-            // O livro está disponível, então podemos realizar o empréstimo.
-            novaBiblioteca.emprestarItem(codigo, usuarioEncontrado);
-            criarPopup("Empréstimo realizado com sucesso!");
-        }
-    } else {
-        criarPopup("Não foi possível encontrar o código!");
-    }
-
-   
+    novaBiblioteca.emprestarItem(codigo, usuarioEncontrado);
    
 }
 
@@ -398,7 +386,6 @@ function devolverItem() {
     }
 
     novaBiblioteca.devolverItem(codigo);
-    criarPopup("Devolução realizada com sucesso!")
     
 }
 
