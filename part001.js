@@ -163,6 +163,7 @@ class Biblioteca {
         if (found) {
             if (found.emprestado) {
                 console.log(`${found.titulo} não está disponível`)
+                criarPopup(`${found.titulo} não está disponível`) //TODO    
             } else {
                 found.emprestar(usuario);
             }
@@ -292,7 +293,7 @@ function adicionarUsuario() {
     const dataNascimento = document.getElementById('dataNascimentoUsuario').value;
 
     if  (nome.length === 0 || registroAcademico.length === 0 || dataNascimento.length === 0) {
-        alert('Por favor, preencha todos os campos antes de adicionar o usuário.');
+        criarPopup("Por favor, preencha todos os campos antes de adicionar o usuário.");
         return; // irá sair da funçao aqui caso algum campo estiver vazio
     }
 
@@ -303,7 +304,7 @@ function adicionarUsuario() {
     document.getElementById('registroUsuario').value = '';
     document.getElementById('dataNascimentoUsuario').value = '';
 
-    alert('Usuário adicionado com sucesso!');
+    criarPopup("Usuário adicionado com sucesso!");
 }
 
 function adicionarItem() {
@@ -314,7 +315,7 @@ function adicionarItem() {
         const genero = document.getElementById('generoItem').value;
 
         if (titulo.length === 0 || codigo.length === 0) {
-            alert('Por favor, preencha todos os campos antes de adicionar o item');
+            criarPopup("Por favor, preencha todos os campos antes de adicionar o item");
             return; // irá sair da funçao aqui caso algum campo estiver vazio
         }
 
@@ -326,7 +327,7 @@ function adicionarItem() {
         document.getElementById('anoPublicacaoItem').value = '';
         document.getElementById('codigoItem').value = '';
 
-        alert('Item adicionado ao acervo com sucesso!');
+        criarPopup("Item adicionado ao acervo com sucesso!");
 }
 
 function listarUsuarios() {
@@ -355,22 +356,66 @@ function emprestarItem() {
     const codigo = document.getElementById('codigoEmprestarDevolver').value;
     const nomeUsuario = document.getElementById('idUsuarioEmprestar').value;
 
-    const usuarioEncontrado = novaBiblioteca.usuarios.find(user => user.registroAcademico === nomeUsuario);
-
-    if (!usuarioEncontrado) {
-        console.log("Usuário não encontrado no sistema.");
+    // Verifica se os campos estão preenchidos, caso contrario encerra aqui.
+    if (codigo.length === 0 || nomeUsuario.length === 0) {
+        criarPopup("Por favor, preencha todos os campos.");
         return;
     }
 
-    novaBiblioteca.emprestarItem(codigo, usuarioEncontrado);
+    const usuarioEncontrado = novaBiblioteca.usuarios.find(user => user.registroAcademico === nomeUsuario);
+
+    if (!usuarioEncontrado) {
+        criarPopup("Usuário não encontrado no sistema.");
+        return;
+    }
+
+    //Verifica se o item está disponivel
+    const found = novaBiblioteca.acervo.find((element) => element.codigo === codigo);
+    if (found) {
+        if (found.emprestado) {
+            criarPopup(`${found.titulo} não está disponível`);
+            return; // Sair da função se o livro não estiver disponível.
+        } else {
+            // O livro está disponível, então podemos realizar o empréstimo.
+            novaBiblioteca.emprestarItem(codigo, usuarioEncontrado);
+            criarPopup("Empréstimo realizado com sucesso!");
+        }
+    } else {
+        criarPopup("Não foi possível encontrar o código!");
+    }
+
+   
    
 }
 
 function devolverItem() {
     const codigo = document.getElementById('codigoEmprestarDevolver').value;
 
+    // Verifica se os campos estão preenchidos, caso contario encerra aqui.
+    if (!codigo) {
+        criarPopup("Por favor, preencha o campo de código.");
+        return;
+    }
+
     novaBiblioteca.devolverItem(codigo);
+    criarPopup("Devolução realizada com sucesso!")
     
+}
+
+// Testes para Modal / Popup
+
+// Funçao que cria um elemento div e adiciona um popup com a mensagem, recebe como parâmetro a própria mensagem e tem um tempo prédefinido de 3 segundos.
+
+function criarPopup(mensagem) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.textContent = mensagem;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.remove(); 
+    }, 3000); 
 }
 
 

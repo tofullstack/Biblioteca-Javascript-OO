@@ -10,6 +10,7 @@
 <body>
     <h1>Tofuteca - A Biblioteca da Tofu</h1>
 
+    <!-- Inicio da label para adicionar um usuario, chama a function adicionarUsuario() -->
     <div class="label-box">
         <h2>Adicionar Usuário</h2>
         <label for="nomeUsuario">Nome:</label>
@@ -23,7 +24,9 @@
         <br>
         <button onclick="adicionarUsuario()">Adicionar Usuário</button>
     </div>
+    <!-- Fim da label para adicionar usuarioi -->
 
+    <!-- Inicio da label para adicionar um item no acervo, faz a chama onclick da function adicionarItem() -->
     <div class="label-box">
         <h2>Adicionar Item ao Acervo</h2>
         <label for="tituloItem">Título:</label>
@@ -38,6 +41,7 @@
         <label for="codigoItem">Código:</label>
         <input type="text" id="codigoItem">
         <br>
+        <!-- Opçoes de generos para o objeto Livros -->
         <label for="generoItem">Gênero:</label>
         <select id="generoItem">
             <option value="Ficção Científica">Ficção Científica</option>
@@ -54,9 +58,11 @@
         <br>
         <button onclick="adicionarItem()">Adicionar Item ao Acervo</button>
     </div>
+    <!-- Fim de adicionar item -->
 
+    <!-- Inicio da label para emprestar e devolver um item, faz a chamada onclick das functions emprestarItem ou devolverItem -->
     <div class="label-box">
-        <h2>Emprestar/Devolver Item</h2>
+        <h2>Emprestar <br>Devolver Item</h2>
     <label for="codigoEmprestarDevolver">Código do Item:</label>
     <input type="text" id="codigoEmprestarDevolver">
     <br>
@@ -66,21 +72,26 @@
     <button onclick="emprestarItem()">Emprestar</button>
     <button onclick="devolverItem()">Devolver</button>
     </div>
+      <!-- Fim de emprestar/devolver item-->
 
+    <!-- Inicio da label para listar usuarios, faz a chamada onclick da function listarUsuarios() -->
     <div class="label-box listar">
         <h2>Usuários</h2>
         <button onclick="listarUsuarios()">Listar Usuários</button>
         <ul id="listaUsuarios"></ul>
     </div>
+    <!-- Fim de Listar Usuarios-->
 
+    <!-- Inicio de listar acervo, faz a chamada onclick da function listarAcervo -->
     <div class="label-box listar">
         <h2>Acervo</h2>
         <button onclick="listarAcervo()">Listar Acervo</button>
         <ul id="listaAcervo"></ul>
     </div>
+    <!-- Fim de listar Acervo -->
 
 
-    
+    <!-- Imagem -->
     <div id="bunny-img">
         <img src="icon/rabbit.png"alt="Logotipo de Coelho">
     </div>
