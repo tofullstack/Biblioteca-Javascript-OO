@@ -1,5 +1,4 @@
-# BibliOOteca
-<h1>BibliOOteca</h1>
+<h1>Biblioteca</h1>
 Sistema de Biblioteca em JavaScript
 
 <p>Este exercício tem como objetivo praticar a programação orientada a objetos, trabalhando com classes, herança, e interação entre objetos.</p>
