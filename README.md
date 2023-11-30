@@ -44,4 +44,9 @@ Sistema de Biblioteca em JavaScript
 <details>
   <summary>Parte 3</summary>
   <p>Implementação do HTML e CSS</p>
+  <ul>
+    <li>chamada da API de Ususários</li>
+    <li>funçao para modal</li>
+    <li>funções do JavaScript DOM para manipulação do HTML</li>
+  </ul>
 </details>
