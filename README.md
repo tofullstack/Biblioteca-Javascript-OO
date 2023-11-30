@@ -41,3 +41,7 @@ Sistema de Biblioteca em JavaScript
     <li>devolverItem(codigo): Devolução de um item ao acervo.</li>
   </ul>
 </details>
+<details>
+  <summary>Parte 3</summary>
+  <p>Implementação do HTML e CSS</p>
+</details>
