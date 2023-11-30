@@ -87,7 +87,7 @@ input:focus {
 /* Ajusta o tamanho do HTML criado dinamicamente que irá exibir dados da API*/
 
 li{
-    font-size: 10px;
+    font-size: 100%;
 }
 
 /* Inicio do CSS para Modal / Popup */
@@ -109,8 +109,10 @@ li{
 
 .disponivel {
     color: #31a910;
+    font-size: 100%;
 }
 
 .emprestado {
     color: #F25E5E;
+    font-size: 100%;
 }
