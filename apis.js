@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             novaBiblioteca.iniciarAcervo(acervoAPI);
             novaBiblioteca.usuarios = usuariosAPI;
 
-            novaBiblioteca.listarAcervo();
-            novaBiblioteca.listarUsuarios();
+            // novaBiblioteca.listarAcervo();
+            // novaBiblioteca.listarUsuarios();
         } catch (erro) {
             console.error("Erro ao inicializar a biblioteca", erro);
         }
@@ -155,6 +155,7 @@ function listarUsuarios() {
         const li = document.createElement('li');
         li.textContent = `${usuario.nome} - ID: ${usuario.registroAcademico}`;
         listaUsuarios.appendChild(li);
+        console.log(`${usuario.nome} - ID: ${usuario.registroAcademico}`)
     });
 }
 
@@ -169,6 +170,7 @@ function listarAcervo() {
         // Criando o HTML dinamicamente, possibilitando a alteraçao de cor para disponibilidade do item.
         li.innerHTML = `${item.titulo} - ${statusText} - COD: ${item.codigo}`;
         listaAcervo.appendChild(li);
+        console.log(`${item.titulo} - ${status} - COD: ${item.codigo}`);
     });
 }
 function emprestarItem() {
