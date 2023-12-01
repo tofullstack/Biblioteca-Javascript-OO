@@ -25,3 +25,28 @@ Sistema de Biblioteca em JavaScript
     </ul>
   </p>
 </details>
+<details>
+    <summary>Parte 2</summary>
+  <p>Crie uma classe Biblioteca com os seguintes atributos:</p>
+  <ul>
+    <li>acervo: array para armazenar as entidades bibliográficas</li>
+    <li>usuarios: array para armazenar os usuários</li>
+  </ul>
+  <p>Implemente os seguintes métodos na classe Biblioteca:</p>
+  <ul>
+    <li>adicionarItem(item): Adiciona uma entidade bibliográfica ao acervo.</li>
+    <li>listarAcervo(): Exibe o acervo da biblioteca.</li>
+    <li>adicionarUsuario(usuario): Adiciona um usuário à biblioteca.</li>
+    <li>emprestarItem(codigo, registroAcademico): Empréstimo de um item para um usuário.</li>
+    <li>devolverItem(codigo): Devolução de um item ao acervo.</li>
+  </ul>
+</details>
+<details>
+  <summary>Parte 3</summary>
+  <p>Implementação do HTML e CSS</p>
+  <ul>
+    <li>chamada da API de Ususários</li>
+    <li>funçao para modal</li>
+    <li>funções do JavaScript DOM para manipulação do HTML</li>
+  </ul>
+</details>
